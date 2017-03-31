@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { LinkService } from '../../services/link.service';
+import linkStore from '../../stores/linkStore';
+import layoutStore from '../../stores/layoutStore';
+
 
 
 @Component({
@@ -15,15 +17,16 @@ import { LinkService } from '../../services/link.service';
 export class AddLinkModalComponent {
 
   @Input() open = false;
-
   private newLinkAddress: string;
-  constructor(){
-    console.log(this.open);
-  }
+  private linkStore = linkStore;
+  private layoutStore = layoutStore;
+
+  constructor(){}
 
   addLink()
   {
-
+      this.linkStore.addLink(this.newLinkAddress);
+      this.layoutStore.closeAddModal();
   }
 
 

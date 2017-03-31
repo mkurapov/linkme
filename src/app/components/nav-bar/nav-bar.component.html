@@ -4,7 +4,7 @@
 </div>
   <a routerLink="/home">Home</a>
   <a routerLink="/groups">Groups</a>
-  <div class="button"  (click)="openAddModal()" *mobxAutorun>add thing</div>
+  <div class="button"  (click)="openAddModal()">add thing</div>
 </nav>
 <add-link-modal [open]="layoutStore.showAddModal" *mobxAutorun></add-link-modal>
 

@@ -1,30 +1,34 @@
 import { observable, computed, action } from 'mobx';
 import { Link } from '../classes/Link';
-import { LinkService } from '../services/link.service';
-import {link} from "fs";
+import { Injectable } from '@angular/core';
+import { LINKS } from '../data/mock-data';
 
+import { Observable } from 'rxjs/Observable';
 
+@Injectable()
 class LinkStore {
-  
-  private links: Link[];
-  
-  constructor(private linkService: LinkService)
+
+  @observable links: Link[];
+
+  constructor()
   {
-    
-  }
-  
-
-  getAllLinks() {
-    this.links = this.linkService.getAllLinks();
+    this.links = LINKS;
   }
 
-  getLinksByTag(tagToFind: string): Promise<Link[]>
+
+  getLinksByTag(tagToFind: string)
   {
-    var filteredLinks = this.links.filter((link) => link.tags.includes(tagToFind));
-    return Promise.resolve(filteredLinks);
+    return this.links.filter((link) => link.tags.includes(tagToFind));
   }
-  
 
+  addLink(newLinkAddress: string)
+  {
+    var testLink = LINKS[0];
+    testLink.address = newLinkAddress;
 
+    this.links.push(testLink);
+  }
 }
+
 export default new LinkStore();
+

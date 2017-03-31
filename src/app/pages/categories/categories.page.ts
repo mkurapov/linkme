@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
-import 'rxjs/add/operator/switchMap';
+import linkStore from '../../stores/linkStore';
 
 
 import { Link } from '../../classes/Link';
@@ -14,8 +14,12 @@ import { LinkService } from '../../services/link.service';
   styleUrls: ['./categories.page.scss']
 })
 export class CategoriesPage implements OnInit {
+
   filteredLinks: Link[];
+  private linkStore = linkStore;
   private sub: any;
+
+
 
   constructor(
     private linkService: LinkService,
@@ -34,7 +38,7 @@ export class CategoriesPage implements OnInit {
 
   showLinks(tagToFind: string): void
   {
-    this.linkService.getLinksByTag(tagToFind).then(newLinks => this.filteredLinks = newLinks);
+    this.filteredLinks = this.linkStore.getLinksByTag(tagToFind);
   }
 
 }
