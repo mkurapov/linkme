@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Link } from '../link';
+import { Link } from '../classes/Link';
 import { LINKS } from '../data/mock-data';
 
 @Injectable()

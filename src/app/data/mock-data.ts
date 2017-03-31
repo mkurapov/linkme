@@ -1,4 +1,4 @@
-import { Link } from '../link';
+import { Link } from '../classes/Link';
 
 export const LINKS: Link[] = [
   {id:11, title:'Best Practices for Minimalist Design', type:'Article', dateAdded: new Date("February 4, 2016 10:13:00"), tags:['Web','Design']},
