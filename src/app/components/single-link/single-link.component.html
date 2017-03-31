@@ -1,0 +1,8 @@
+<div class="single-link" *ngIf="link">
+  <div class="title">{{link.title}}</div>
+  <div class="type">{{link.type}}</div>
+  <div class="dateAdded">{{link.dateAdded}}</div>
+  <li *ngFor="let tag of link.tags">
+    {{tag}}
+  </li>
+</div>

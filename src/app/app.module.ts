@@ -8,6 +8,8 @@ import { RouterModule }   from '@angular/router';
 import { AppComponent } from './app.component';
 import { LinkService } from './services/link.service';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { SingleLinkComponent } from './components/single-link/single-link.component';
+
 import { HomePage } from './pages/home/home.component';
 import { GroupsPage } from './pages/groups/groups.component';
 
@@ -18,6 +20,7 @@ import { AppRoutes } from './app-routes.module';
   declarations: [
     AppComponent,
     NavBarComponent,
+    SingleLinkComponent,
     HomePage,
     GroupsPage
   ],

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Link } from '../../classes/Link';
+
+import { LinkService } from '../../services/link.service';
 
 @Component({
   selector: 'home',
@@ -6,6 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomePage implements OnInit {
-  constructor(){}
-  ngOnInit(){}
+  links: Link[];
+
+  constructor(private linkService: LinkService){}
+
+  getLinks(): void
+  {
+    this.linkService.getLinks().then(newLinks => this.links = newLinks);
+  }
+
+  ngOnInit(): void
+  {
+    this.getLinks();
+  }
 }
