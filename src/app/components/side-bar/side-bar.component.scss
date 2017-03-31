@@ -1,0 +1,13 @@
+@import "../../../variables.scss";
+
+.side-bar
+{
+  background: $project-grey;
+  position: absolute;
+  z-index: -1;
+  display: inline-block;
+  left: 0;
+  top:0;
+  height: 100vh;
+  width: $side-bar-width;
+}

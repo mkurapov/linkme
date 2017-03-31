@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Link } from '../../classes/Link';
+import { timeSince } from '../../helpers/helpers';
 
 @Component({
   selector: 'single-link',
@@ -9,4 +10,12 @@ import { Link } from '../../classes/Link';
 
 export class SingleLinkComponent {
   @Input() link: Link;
+
+  private timeSincePosted: string;
+
+  ngOnInit() {
+      this.timeSincePosted = timeSince(this.link.dateAdded)+' ago';
+  }
+
+
 }

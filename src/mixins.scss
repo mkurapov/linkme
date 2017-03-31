@@ -1,0 +1,8 @@
+@import "./variables.scss";
+
+
+@mixin pageLayout {
+  margin-left: $side-bar-width;
+  padding: 70px 70px;
+  min-height: calc(100vh - #{$nav-bar-height + 140px});
+}

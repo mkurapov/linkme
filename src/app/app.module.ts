@@ -8,10 +8,13 @@ import { RouterModule }   from '@angular/router';
 import { AppComponent } from './app.component';
 import { LinkService } from './services/link.service';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
+
 import { SingleLinkComponent } from './components/single-link/single-link.component';
 
 import { HomePage } from './pages/home/home.component';
 import { GroupsPage } from './pages/groups/groups.component';
+import { CategoriesPage } from './pages/categories/categories.component';
 
 import { AppRoutes } from './app-routes.module';
 
@@ -21,8 +24,10 @@ import { AppRoutes } from './app-routes.module';
     AppComponent,
     NavBarComponent,
     SingleLinkComponent,
+    SideBarComponent,
     HomePage,
-    GroupsPage
+    GroupsPage,
+    CategoriesPage
   ],
   imports: [
     BrowserModule,

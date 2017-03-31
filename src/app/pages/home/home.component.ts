@@ -15,7 +15,7 @@ export class HomePage implements OnInit {
 
   getLinks(): void
   {
-    this.linkService.getLinks().then(newLinks => this.links = newLinks);
+    this.linkService.getAllLinks().then(newLinks => this.links = newLinks);
   }
 
   ngOnInit(): void
