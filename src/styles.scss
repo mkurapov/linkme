@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Graphik-SemiBold';
+  src: url("/assets/fonts/Graphik/Graphik-Semibold.otf");
+}
+body
+{
+  margin:0;
+  -webkit-font-smoothing: antialiased;
+  font-family: Graphik-SemiBold;
+}
