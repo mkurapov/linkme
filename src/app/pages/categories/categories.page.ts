@@ -10,8 +10,8 @@ import { LinkService } from '../../services/link.service';
 
 @Component({
   selector: 'categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.scss']
+  templateUrl: './categories.page.html',
+  styleUrls: ['./categories.page.scss']
 })
 export class CategoriesPage implements OnInit {
   filteredLinks: Link[];
@@ -34,9 +34,7 @@ export class CategoriesPage implements OnInit {
 
   showLinks(tagToFind: string): void
   {
-
     this.linkService.getLinksByTag(tagToFind).then(newLinks => this.filteredLinks = newLinks);
-    console.log(this);
   }
 
 }

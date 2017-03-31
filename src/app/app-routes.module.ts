@@ -4,9 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LinkService } from './services/link.service';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { HomePage } from './pages/home/home.component';
-import { GroupsPage } from './pages/groups/groups.component';
-import { CategoriesPage } from './pages/categories/categories.component';
+import { HomePage } from './pages/home/home.page';
+import { GroupsPage } from './pages/groups/groups.page';
+import { CategoriesPage } from './pages/categories/categories.page';
 
 
 const routes: Routes = [

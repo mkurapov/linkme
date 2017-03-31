@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import layoutStore from '../../stores/layoutStore'
+
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  styleUrls: ['./nav-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent {
 
-  constructor() { }
+  private layoutStore = layoutStore;
 
-  ngOnInit() {
+  constructor() {
   }
+
+  openAddModal()
+  {
+    console.log(layoutStore);
+
+    layoutStore.openAddModal();
+  }
+
+  closeAddModal()
+  {
+    layoutStore.closeAddModal();
+  }
+
+
 
 }
