@@ -11,8 +11,8 @@ export interface State{
 }
 
 const globalReducers = {
-    layoutReducer:fromLayout.layoutReducer,
-    linksReducer: fromLinks.linkReducer
+    layout:fromLayout.layoutReducer,
+    links: fromLinks.linkReducer
 };
 
 const globalState: ActionReducer<State> = combineReducers(globalReducers);
@@ -24,4 +24,7 @@ export const getLayoutState = (state: State) => state.layout;
 export const getShowAddModal = createSelector(getLayoutState, fromLayout.getShowAddModal);
 
 
+/*links*/
+export const getLinkState = (state: State) => state.links;
+export const getLinks = createSelector(getLinkState, fromLinks.getLinks);
 

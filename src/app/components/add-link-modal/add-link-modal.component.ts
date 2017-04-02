@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter  } from '@angular/core';
 
 
 
@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   selector: 'add-link-modal',
   template: `<div class="add-link-modal" [hidden]="!open">
               <input [(ngModel)]="newLinkAddress" placeholder="Link Address">
-              <div class="button" (click)="addLink()">confirm</div>
+              <div class="button" (click)="addLinkEvent.emit(newLinkAddress)">confirm</div>
             </div>
           `,
   styleUrls: ['./add-link-modal.component.scss']
@@ -15,13 +15,10 @@ import { Component, Input } from '@angular/core';
 export class AddLinkModalComponent {
 
   @Input() open = false;
-  private newLinkAddress: string;
+  @Output() addLinkEvent : EventEmitter<string> = new EventEmitter<string>();
 
   constructor(){}
 
-  addLink()
-  {
-  }
 
 
 }
