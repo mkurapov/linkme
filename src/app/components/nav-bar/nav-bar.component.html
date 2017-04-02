@@ -1,4 +1,4 @@
-<nav *mobxAutorun>
+<nav>
 <div class="logo">
   linkme
 </div>
@@ -6,5 +6,5 @@
   <a routerLink="/groups">Groups</a>
   <div class="button"  (click)="openAddModal()">add thing</div>
 </nav>
-<add-link-modal [open]="layoutStore.showAddModal" *mobxAutorun></add-link-modal>
+<add-link-modal [open]="showAddModal$"></add-link-modal>
 

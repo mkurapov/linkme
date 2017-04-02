@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
-import linkStore from '../../stores/linkStore';
 
 
 import { Link } from '../../classes/Link';
@@ -15,10 +14,6 @@ import { LinkService } from '../../services/link.service';
 })
 export class CategoriesPage implements OnInit {
 
-  filteredLinks: Link[];
-  private linkStore = linkStore;
-  private sub: any;
-
 
 
   constructor(
@@ -31,14 +26,12 @@ export class CategoriesPage implements OnInit {
   ngOnInit(): void
   {
 
-    this.sub = this.route.params.subscribe(params => {
-      this.showLinks(params['tag']);
-    });
+   
   }
 
   showLinks(tagToFind: string): void
   {
-    this.filteredLinks = this.linkStore.getLinksByTag(tagToFind);
+   
   }
 
 }

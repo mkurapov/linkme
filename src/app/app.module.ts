@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
+import { Store, StoreModule } from '@ngrx/store';
+import { layoutReducer } from './reducer/layout';
 
-import { MobxAngularModule } from 'mobx-angular';
 import { LinkService } from './services/link.service';
 
 
@@ -39,10 +40,11 @@ import { AppRoutes } from './app-routes.module';
   ],
   imports: [
     BrowserModule,
-    MobxAngularModule,
     FormsModule,
     HttpModule,
     AppRoutes,
+    StoreModule.provideStore(layoutReducer)
+
   ],
   providers: [LinkService],
   bootstrap: [AppComponent]

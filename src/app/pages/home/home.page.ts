@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import linkStore from '../../stores/linkStore'
+import { Link } from '../../classes/Link';
 
 @Component({
   selector: 'home',
@@ -7,7 +7,5 @@ import linkStore from '../../stores/linkStore'
   styleUrls: ['./home.page.scss']
 })
 export class HomePage {
-
-  private linkStore = linkStore;
-
+  private links: Link[];
 }
