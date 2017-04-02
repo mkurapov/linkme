@@ -17,13 +17,14 @@ export function linkReducer(state = initialState, action: Action): LinkState {
     switch (action.type) {    
         case linkActions.ADD_LINK:
 
-            const newLinks = state.links;
-            const newLink: Link = {id:12,address:action.payload,title:'newlink',type:'Article',dateAdded: new Date(Date.now()),tags:['design']}
-            newLinks.push(newLink);
+            if (action.payload)
+            {
+                const newLinks = state.links;
+                const newLink: Link = {id:12,address:action.payload,title:'newlink',type:'Article',dateAdded: new Date(Date.now()),tags:['design']}
+                newLinks.push(newLink);
+            }
             
-            return { 
-                links: newLinks
-            };
+            return state;
  
         default:
             return state;

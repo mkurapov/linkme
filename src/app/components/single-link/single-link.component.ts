@@ -14,7 +14,7 @@ export class SingleLinkComponent {
   private timeSincePosted: string;
 
   ngOnInit() {
-      this.timeSincePosted = timeSince(this.link.dateAdded)+' ago';
+      this.timeSincePosted = timeSince(this.link.dateAdded);
   }
 
 

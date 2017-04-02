@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import * as rootReducer from '../../reducers/';
@@ -41,9 +41,11 @@ export class NavBarComponent {
     this.store.dispatch({type: layoutActions.TOGGLE_ADD_MODAL})
   }
 
+
   addLink(newLinkAddress: string)
   {
-    console.log('here')
     this.store.dispatch({type: linkActions.ADD_LINK, payload: newLinkAddress})
+     this.store.dispatch({type: layoutActions.TOGGLE_ADD_MODAL})
+
   }
 }

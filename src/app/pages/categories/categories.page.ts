@@ -31,17 +31,17 @@ export class CategoriesPage implements OnInit {
     private location: Location
   )
   {
-    this.filteredLinks$ = store.select(rootReducer.getLinks);
+     this.sub = this.route.params.subscribe(params => {
+            this.filter = params['tag']; 
+          });
+
+    this.filteredLinks$ = store.select(rootReducer.getLinks).map( l => l.filter(link => link.tags.includes(this.filter)));
   }
 
 
   ngOnInit(): void
   {
-      this.sub = this.route.params.subscribe(params => {
-            this.filter = params['tag']; 
-            
-
-          });
+     
   }
 
   filterLinks(): void
