@@ -4,10 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
 import { Store, StoreModule } from '@ngrx/store';
-import { layoutReducer } from './reducer/layout';
+import { reducers } from './reducers/'
+
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+// import { linkReducer} from './reducer/links';
+// import { layoutReducer} from './reducer/layout';
+
 
 import { LinkService } from './services/link.service';
-
 
 
 import { AppComponent } from './app.component';
@@ -36,15 +41,16 @@ import { AppRoutes } from './app-routes.module';
     SideBarComponent,
     HomePage,
     GroupsPage,
-    CategoriesPage
+    CategoriesPage,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutes,
-    StoreModule.provideStore(layoutReducer)
-
+    StoreModule.provideStore(reducers),
+    StoreDevtoolsModule.instrumentOnlyWithExtension()
+  
   ],
   providers: [LinkService],
   bootstrap: [AppComponent]

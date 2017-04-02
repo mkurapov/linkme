@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 
 
@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
       <app-nav-bar></app-nav-bar>
       <app-side-bar></app-side-bar>
       <router-outlet></router-outlet>
-    `
+    `,
+    changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class AppComponent {
 

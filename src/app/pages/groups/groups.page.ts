@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'groups',
-  templateUrl: './groups.page.html',
-  styleUrls: ['./groups.page.scss']
+  template: `<div class="page">
+               <h1>Groups</h1>
+            </div>`
 })
 export class GroupsPage implements OnInit {
   constructor(){}

@@ -1,0 +1,1 @@
+export const TOGGLE_ADD_MODAL = 'TOGGLE_ADD_MODAL';

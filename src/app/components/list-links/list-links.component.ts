@@ -3,7 +3,10 @@ import { Link } from '../../classes/Link';
 
 @Component({
   selector: 'list-links',
-  templateUrl: './list-links.component.html',
+  template: `<div class="links" *ngFor="let link of links" >
+            <single-link [link]="link"></single-link>
+            </div>
+          `,
   styleUrls: ['./list-links.component.scss']
 })
 

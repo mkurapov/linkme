@@ -1,42 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
-import * as layoutReducers from '../../reducer/layout';
+import * as rootReducer from '../../reducers/';
+import * as layoutActions from '../../actions/layout';
  
-interface AppState {
-  counter: number;
-}
 
 
 @Component({
   selector: 'app-nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  template: `
+        <nav>
+        <div class="logo">
+          linkme
+        </div>
+          <a routerLink="/home">Home</a>
+          <a routerLink="/groups">Groups</a>
+          <div class="button"  (click)="toggleAddModal()">add thing</div>
+        </nav>
+        <add-link-modal [open]="showAddModal$ | async"></add-link-modal>
+        `,
+  styleUrls: ['./nav-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 
 })
 
 export class NavBarComponent {
 
-  public showAddModal$;
+  showAddModal$: Observable<boolean>;
 
-  constructor(private store : Store<any>) {
-    this.store.select('showAddModal').subscribe(showAddModal => 
-      {
-        this.showAddModal$ = showAddModal;
-    })
+  constructor(private store : Store<rootReducer.State>) {
+   this.showAddModal$ = store.select(rootReducer.getShowAddModal);
   }
 
-  openAddModal()
+  toggleAddModal()
   {
-    console.log(this.store);
-    this.store.dispatch({type: layoutReducers.OPEN_ADD_MODAL});
+    this.store.dispatch({type: layoutActions.TOGGLE_ADD_MODAL})
   }
-
-  closeAddModal()
-  {
-    
-  }
-
-
-
 }

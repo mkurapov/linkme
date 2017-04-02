@@ -9,12 +9,11 @@ import { LinkService } from '../../services/link.service';
 
 @Component({
   selector: 'categories',
-  templateUrl: './categories.page.html',
-  styleUrls: ['./categories.page.scss']
+  template: `<div class="page">
+              <list-links [links]="filteredLinks"></list-links>
+            </div>`
 })
 export class CategoriesPage implements OnInit {
-
-
 
   constructor(
     private linkService: LinkService,
