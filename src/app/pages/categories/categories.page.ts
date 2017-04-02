@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter'
-import 'rxjs/add/operator/let';
+import 'rxjs/add/operator/filter';
 
 
 import { Store } from '@ngrx/store';
@@ -17,7 +16,8 @@ import { Link } from '../../classes/Link';
   selector: 'categories',
   template: `<div class="page">
               <list-links [links]="filteredLinks$ | async"></list-links>
-            </div>`
+            </div>`,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CategoriesPage implements OnInit {
 
@@ -33,20 +33,16 @@ export class CategoriesPage implements OnInit {
   {
      this.sub = this.route.params.subscribe(params => {
             this.filter = params['tag']; 
+            this.filteredLinks$ = this.store.select(rootReducer.getLinks).map(list => list.filter(l => l.tags.includes(this.filter)));
           });
 
-    this.filteredLinks$ = store.select(rootReducer.getLinks).map( l => l.filter(link => link.tags.includes(this.filter)));
   }
 
 
   ngOnInit(): void
   {
-     
+    
   }
 
-  filterLinks(): void
-  {
-    console.log(this.filteredLinks$)
-  }
 
 }

@@ -17,7 +17,7 @@ import * as linkActions from '../../actions/links';
         </div>
           <a routerLink="/home">Home</a>
           <a routerLink="/groups">Groups</a>
-          <div class="button"  (click)="toggleAddModal()">add thing</div>
+          <div class="button"  (click)="toggleAddModal()">Add Link</div>
         </nav>
         <add-link-modal [open]="showAddModal$ | async" 
                         (addLinkEvent)="addLink($event)">
